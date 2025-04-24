@@ -1,0 +1,13 @@
+<form action="">
+    <label for="usuario"></label>
+    <input name="usuario" type="text" placeholder="usuario" [formControl]="usuarios">
+
+    <label for="senha"></label>
+    <input name="senha" type="text" placeholder="senha">
+    <button>login</button>
+</form>
+
+
+{{usuarios.value}}
+
+
