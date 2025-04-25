@@ -8,13 +8,18 @@ import { Router } from '@angular/router';
 
 export class AutenticacaoService {
 
+
+dadosArmazenados:any ={}
 constructor(){}
-  armazenar(){
-    return[
-      {usuario: "rafael", senha:"123"}
-      
+ 
+saveFormData(usuario:string, senha:string){
+ 
+  this.dadosArmazenados ={ usuario: usuario, senha: senha};
+  console.log('dados armazenados no service', this.dadosArmazenados)
+}
 
-    ]
+getDataForm(){
+  return this.dadosArmazenados;
+}
 
-  }
 }

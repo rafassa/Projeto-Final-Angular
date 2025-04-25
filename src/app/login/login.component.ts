@@ -1,25 +1,29 @@
 import { Component } from '@angular/core';
-import {FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AutenticacaoService } from '../services/autenticacao.service';
+import { FormsModule, NgForm } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
-  usuarios = new FormControl( )
 
-// Data:{
-//   usuario:string;
-//   senha:string;
-// }[] | undefined
-// constructor(private autenticar:AutenticacaoService){}
-// ngOnInit(){
-//   this.Data = this.autenticar.armazenar();
-  
+  constructor(private service:AutenticacaoService){}
+ logins?:NgForm
+ usuario: string = ''; 
+ senha: string = ''; 
 
-// }
+  login(valor:NgForm){
+   this.usuario = valor.value.usuario;
+   this.senha = valor.value.senha;
+  console.log(this.usuario);
+  console.log(this.senha);
+  this.service.saveFormData(this.usuario, this.senha)
+
+  }
+
 }

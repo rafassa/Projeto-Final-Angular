@@ -1,13 +1,16 @@
-<form action="">
+
+<section class="formSection">
+<form #loginForm="ngForm"  (ngSubmit)="login(loginForm)">
     <label for="usuario"></label>
-    <input name="usuario" type="text" placeholder="usuario" [formControl]="usuarios">
+    <input required #usuario="ngModel" name="usuario" id="usuario" type="text" placeholder="usuario" ngModel >
+    <span class="error" *ngIf="usuario.invalid && usuario.touched">*</span>
 
     <label for="senha"></label>
-    <input name="senha" type="text" placeholder="senha">
-    <button>login</button>
+    <input required #senha="ngModel" minlength="5" maxlength="15" name="senha" id="senha" type="password" placeholder="senha" ngModel >
+    <span class="error" *ngIf="senha.invalid && senha.touched">*</span>
+    
+
+    <button [disabled]="loginForm.invalid">login</button>
 </form>
 
-
-{{usuarios.value}}
-
-
+</section>
