@@ -1,6 +1,6 @@
 
 <section class="formSection">
-<form #loginForm="ngForm"  (ngSubmit)="login(loginForm)">
+<form #loginForm="ngForm"  (ngSubmit)="addUser(loginForm.value)">
     <label for="usuario"></label>
     <input required #usuario="ngModel" name="usuario" id="usuario" type="text" placeholder="usuario" ngModel >
     <span class="error" *ngIf="usuario.invalid && usuario.touched">*</span>
@@ -11,6 +11,7 @@
     
 
     <button [disabled]="loginForm.invalid">login</button>
+    <span *ngIf="mensagemDeErro">{{mensagemDeErro}}</span>
 </form>
 
 </section>

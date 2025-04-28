@@ -1,5 +1,7 @@
-import { Component, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {  Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../interfaces/Usuario';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +11,18 @@ import { Router } from '@angular/router';
 export class AutenticacaoService {
 
 
-dadosArmazenados:any ={}
-constructor(){}
- 
-saveFormData(usuario:string, senha:string){
- 
-  this.dadosArmazenados ={ usuario: usuario, senha: senha};
-  console.log('dados armazenados no service', this.dadosArmazenados)
+constructor(private http:HttpClient){}
+// callAPI():Observable<User[]>{
+//   const apiUrl="http://localhost:3001/login"
+//   return this.http.get<User[]>(apiUrl)
+// }
+
+
+
+
+postAPI(user:User[]):Observable<User[]>{
+  const apiUrl="http://localhost:3001/login"
+  return this.http.post<User[]>(apiUrl, user)
+}
 }
 
-getDataForm(){
-  return this.dadosArmazenados;
-}
-
-}
