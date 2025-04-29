@@ -4,8 +4,19 @@ import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
 
-    {path: 'home', component:HomeComponent},
-    {path: '', component: LoginComponent},
+    {
+        path:'',
+        redirectTo:'login',
+        pathMatch:'full'
 
+    },
+   {
+    path:'home',
+    component:HomeComponent
+   },
+   {
+    path:'login',
+    component:LoginComponent
+   }
 
 ];

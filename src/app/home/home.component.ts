@@ -1,22 +1,26 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
-
+import { AutenticacaoService } from '../services/autenticacao.service';
 
 
 
 @Component({
   selector: 'app-home',
-  imports: [LoginComponent],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   
 
-  constructor(private router:Router, private route:ActivatedRoute){}
+  constructor(private service2:AutenticacaoService){}
+  user:any
+  ngOnInit(){
+     this.user = this.service2
+     console.log()
+  }
   logOut(){
-    this.router.navigate([''])
+
   }
 
 }

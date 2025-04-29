@@ -1,7 +1,7 @@
 import {  Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../interfaces/Usuario';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { APP_BASE_HREF } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +9,24 @@ import { Observable } from 'rxjs';
 
 
 export class AutenticacaoService {
-
-
+  apiUsuarios:any = []=[]
+// private dataLink= new   BehaviorSubject<any>(null)
+// dataSalva = this.dataLink.asObservable()
 constructor(private http:HttpClient){}
-// callAPI():Observable<User[]>{
-//   const apiUrl="http://localhost:3001/login"
-//   return this.http.get<User[]>(apiUrl)
-// }
 
 
+getApiInformation(apiInfo:any){
+this.apiUsuarios = apiInfo
+console.log("esta aqui a array",this.apiUsuarios)
+localStorage.setItem(this.apiUsuarios, JSON.stringify(apiInfo))
+}
 
-
-postAPI(user:User[]):Observable<User[]>{
+//   setApiData(data:any){
+// this.dataLink.next(data)
+//   }
+postAPI(x:any){
   const apiUrl="http://localhost:3001/login"
-  return this.http.post<User[]>(apiUrl, user)
+  return this.http.post(apiUrl, x)
 }
 }
 

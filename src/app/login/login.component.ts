@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AutenticacaoService } from '../services/autenticacao.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { User } from '../interfaces/Usuario';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,18 +11,19 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  user:User[]=[]
+ 
   constructor(private service:AutenticacaoService, private router:Router){}
   mensagemDeErro:string | null=null
 
   
   
-  addUser(user:User[]){
+  addUser(user:string){
     console.log(user)
     this.service.postAPI(user).subscribe({
-      next: (data:User[]) =>{
-        this.router.navigate(['home'],{queryParams:{usuario:this.user}})
-        
+      next: (data:any) =>{
+        this.router.navigateByUrl('/home')
+        this.service.getApiInformation(data)
+        // this.service.setApiData(data)
       },
       error:(error)=> {
         this.mensagemDeErro=error.error.message
