@@ -1,5 +1,9 @@
 
 
-<p>Seja Bem vindo ao sistema {{user}}</p>
+
+
+
+<p>Seja Bem vindo ao sistema {{name?.usuario}} </p>
 <img src=".\ranger.png" alt="imagem">
-<button>Logout</button>
+<button (click)="logOut()">Logout</button>
+<app-admin></app-admin>
