@@ -1,16 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
+
 import { Usuario } from '../interfaces/Usuario.interface';
 import { AutenticacaoService } from '../services/autenticacao.service';
-import { AdminComponent } from '../admin/admin.component';
+import { BarraLateralComponent } from '../barra-lateral/barra-lateral.component';
+
 
 
 
 
 @Component({
   selector: 'app-home',
-  imports: [AdminComponent],
+  imports: [BarraLateralComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

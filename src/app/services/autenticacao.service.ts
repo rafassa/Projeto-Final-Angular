@@ -9,7 +9,7 @@ import { Usuario } from '../interfaces/Usuario.interface';
 
 export class AutenticacaoService {
 constructor(private http:HttpClient){}
-
+loginInputInfo:string []=[]
 
 getApiInformation(apiInfo:Usuario[]){
 console.log(apiInfo)
@@ -18,7 +18,7 @@ localStorage.setItem('apiUsuarios', JSON.stringify(apiInfo))
 
 loginAuto(apiInfo:Usuario[]){
   localStorage.setItem('informacoes', JSON.stringify(apiInfo)) 
-
+  console.log(apiInfo)
 }
 
 removeStorage(){

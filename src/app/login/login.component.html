@@ -14,7 +14,7 @@
     <label for="senha">senha</label>
     <span class="error" *ngIf="senha.invalid && senha.touched" class="text-danger ">*</span>
 </div>
-    <input type="checkbox" *ngForm>
+    
     <button class="btn mt-3 " [disabled]="loginForm.invalid">login</button>
     <span *ngIf="mensagemDeErro">{{mensagemDeErro}}</span>
 </form>
