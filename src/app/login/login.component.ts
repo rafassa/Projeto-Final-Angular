@@ -5,6 +5,7 @@ import { CommonModule, } from '@angular/common';
 import { Router } from '@angular/router';
 import { Usuario } from '../interfaces/Usuario.interface';
 
+
 @Component({
   selector: 'app-login',
   imports: [FormsModule, CommonModule],
@@ -17,18 +18,15 @@ export class LoginComponent {
   constructor( private router:Router){}
   mensagemDeErro:string | null=null
 
- marcado:boolean = false
+
   
   
 
   addUser(user:Usuario[]){
    
-
-
     this.service.postAPI(user).subscribe({
-      next: (data:any) =>{
+      next: (data:Usuario[]) =>{
         this.service.getApiInformation(data)
-        if(this.marcado == true){ this.service.loginAuto(data)}
         this.router.navigateByUrl('/home')
         
       },

@@ -99,7 +99,7 @@ app.post("/vehicleData", (req, res) => {
           lat: -12.2322,
           long: -35.2314,
         });
-
+ 
       case "2RFAASDY54E4HDU34874":
         return res.status(200).json({
           id: 2,

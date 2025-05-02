@@ -1,7 +1,25 @@
-<button (click)="getAPI()">ola mundo</button>
-<div *ngIf="carros">{{carros![teste].id}}</div>
-<div *ngIf="carros">{{carros![teste].vehicle}}</div>
-<div *ngIf="carros">{{carros![teste].connected}}</div>
-<div *ngIf="carros">{{carros![teste].softwareUpdates}}</div>
-<div *ngIf="carros">{{carros![teste].img}}</div>
-<button (click)="aumento()">dasdasdsa</button>
+
+
+
+<section class="container-fluid p-0 d-flex justify-content-center align-items-center">
+    <div>
+    <select class="form-select form-select-lg mb-3" name="selectDashboard" id="DashboardSelect"  [(ngModel)]="carSelect" (change)="carroSelecionado()" >
+        <option value="0" disabled selected>Selecione uma opção</option>
+        <option value="0">carro1</option>
+        <option value="1">carro2</option>
+        <option value="2">carro3</option>
+        <option value="3">carro4</option>
+    </select>
+</div>
+<div>
+    <p *ngIf="carros">{{carros![selecionado].id}}</p>
+    <p *ngIf="carros">{{carros![selecionado].vehicle}}</p>
+    <p *ngIf="carros">{{carros![selecionado].connected}}</p>
+    <p *ngIf="carros">{{carros![selecionado].softwareUpdates}}</p>
+    <img class="img-fluid" alt="Responsive image" *ngIf="carros" [src]="carros![selecionado].img" >
+</div>
+</section>
+<div class="m-2 p-2 bg-blue-200 rounded-sm shadow-sm"></div>
+
+<app-barra-lateral class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"></app-barra-lateral>
+
