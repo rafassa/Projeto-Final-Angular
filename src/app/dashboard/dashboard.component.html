@@ -11,12 +11,12 @@
         <option value="3">carro4</option>
     </select>
 </div>
-<div>
-    <p *ngIf="carros">{{carros![selecionado].id}}</p>
-    <p *ngIf="carros">{{carros![selecionado].vehicle}}</p>
-    <p *ngIf="carros">{{carros![selecionado].connected}}</p>
-    <p *ngIf="carros">{{carros![selecionado].softwareUpdates}}</p>
-    <img class="img-fluid" alt="Responsive image" *ngIf="carros" [src]="carros![selecionado].img" >
+<div class="d-flex flex-column align-items-center">
+    <p class="fs-1" *ngIf="carros">{{carros![selecionado].id}}</p>
+    <p class="fs-1" *ngIf="carros">{{carros![selecionado].vehicle}}</p>
+    <p class="fs-1" *ngIf="carros">{{carros![selecionado].connected}}</p>
+    <p class="fs-1" *ngIf="carros">{{carros![selecionado].softwareUpdates}}</p>
+    <img class="img-fluid w-100" alt="Responsive image" *ngIf="carros" [src]="carros![selecionado].img" >
 </div>
 </section>
 <div class="m-2 p-2 bg-blue-200 rounded-sm shadow-sm"></div>
