@@ -12,9 +12,9 @@ export class BarraService {
   constructor(private http:HttpClient) { }
 
 
-  PostSearch(SearchValue:string){
+  PostSearch(SearchValue:string):Observable<Data[]>{
     const apiUrl="http://localhost:3001/vehicleData"
-    return  this.http.post(apiUrl, SearchValue)
+    return  this.http.post<Data[]>(apiUrl, { vin:SearchValue})
     
   }
 

@@ -1,6 +1,6 @@
 export interface Data{
-
-    id: string,
+   
+    id:string,
     odometro: string,
     nivelCombustivel: string,
     status:string,

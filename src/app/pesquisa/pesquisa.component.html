@@ -1,2 +1,12 @@
 
 <input type="text"  [formControl]="pesquisaControl" class="search-input" placeholder="Barra de pesquisa">
+<div *ngIf="dataList">
+    <div *ngFor="let item of dataList">
+      <p>ID: {{ item['id'] }}</p>
+      <p>Odômetro: {{ item['odometro'] }}</p>
+      <p>Nível Combustível: {{ item['nivelCombustivel'] }}</p>
+      <p>Status: {{ item['status'] }}</p>
+      <p>Latitude: {{ item['lat'] }}</p>
+      <p>Longitude: {{ ['item.long'] }}</p>
+    </div>
+  </div>
