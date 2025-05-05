@@ -1,16 +1,16 @@
 
-
-<form #loginForm="ngForm" class="container-sm"  (ngSubmit)="addUser(loginForm.value)">
+<div class="container d-flex justify-content-center align-items-center container-center ali">
+<form #loginForm="ngForm" class="p-4 border rounded shadow"  (ngSubmit)="addUser(loginForm.value)">
     <div class="form-floating mb-3">
    
-    <input required #usuario="ngModel" class="form-control w-25" name="usuario" id="usuario" type="text" placeholder="usuario" ngModel >
+    <input required #usuario="ngModel" class="form-control w-100" name="usuario" id="usuario" type="text" placeholder="usuario" ngModel >
     <label for="usuario">Usuário</label>
     <span class="error" *ngIf="usuario.invalid && usuario.touched" class="text-danger">*</span>
 </div>
 
 <div class="form-floating">
     
-    <input required #senha="ngModel" class="form-control w-25" minlength="5" maxlength="15" name="senha" id="senha" type="password" placeholder="senha" ngModel >
+    <input required #senha="ngModel" class="form-control w-100" minlength="5" maxlength="15" name="senha" id="senha" type="password" placeholder="senha" ngModel >
     <label for="senha">senha</label>
     <span class="error" *ngIf="senha.invalid && senha.touched" class="text-danger ">*</span>
 </div>
@@ -18,5 +18,5 @@
     <button class="btn mt-3 " [disabled]="loginForm.invalid">login</button>
     <span *ngIf="mensagemDeErro">{{mensagemDeErro}}</span>
 </form>
-
+</div>
 
