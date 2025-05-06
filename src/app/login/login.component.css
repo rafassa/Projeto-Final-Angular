@@ -1,2 +1,9 @@
+:host{
+    height: 100vh;
+}
 
-
+#imgHome{
+    background-image: url('/ranger2.png');background-repeat: no-repeat;
+    background-size: 50%;
+background-position: center;
+}

@@ -1,22 +1,33 @@
 
-<div class="container d-flex justify-content-center align-items-center container-center ali">
-<form #loginForm="ngForm" class="p-4 border rounded shadow"  (ngSubmit)="addUser(loginForm.value)">
-    <div class="form-floating mb-3">
-   
-    <input required #usuario="ngModel" class="form-control w-100" name="usuario" id="usuario" type="text" placeholder="usuario" ngModel >
-    <label for="usuario">Usuário</label>
-    <span class="error" *ngIf="usuario.invalid && usuario.touched" class="text-danger">*</span>
-</div>
 
-<div class="form-floating">
+
+
+
+<section class="h-100 d-flex">
+<div class="d-flex align-items-center w-50">
+    <img src="./ranger2.png" alt="carroImgHome" class="img-fluid  w-100 h-30">
+</div>
+<div class="container d-flex justify-content-center align-items-center container-center justify-self-center  h-100 flex-column border rounded shadow w-50 ">
+    <h1 class="text-monospace text-center">Boas vindas</h1>
+<form #loginForm="ngForm" class="p-3  w-100 col-md-6"  (ngSubmit)="addUser(loginForm.value)">
+
+    <div class="form-floating mb-3 ">
+        <input required #usuario="ngModel" class="form-control " name="usuario" id="usuario" type="text" placeholder="usuario" ngModel >
+        <label for="usuario">Usuário</label>
+        <span class="error h2 input-group-text" *ngIf="usuario.invalid && usuario.touched" class="text-danger">Campo não preenchido!</span>
+    </div>
+
+<div class="form-floating ">
     
     <input required #senha="ngModel" class="form-control w-100" minlength="5" maxlength="15" name="senha" id="senha" type="password" placeholder="senha" ngModel >
     <label for="senha">senha</label>
-    <span class="error" *ngIf="senha.invalid && senha.touched" class="text-danger ">*</span>
+    <span class="error" *ngIf="senha.invalid && senha.touched" class="text-danger ">Campo não preenchido</span>
 </div>
-    
-    <button class="btn mt-3 " [disabled]="loginForm.invalid">login</button>
-    <span *ngIf="mensagemDeErro">{{mensagemDeErro}}</span>
+<div class="d-flex align-items-center p-2 ">
+    <button class="btn  border" [disabled]="loginForm.invalid">login</button>
+    <span  class=" mtext-justify fs-6 fw-light alert alert-danger p-2 m-0" *ngIf="mensagemDeErro">{{mensagemDeErro}}</span>
+</div>
 </form>
 </div>
 
+</section>

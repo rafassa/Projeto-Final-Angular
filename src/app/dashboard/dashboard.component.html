@@ -2,23 +2,27 @@
 
 
 <section class="container-fluid p-0 d-flex justify-content-center align-items-center">
-    <div>
-    <select class="form-select form-select-lg mb-3" name="selectDashboard" id="DashboardSelect"  [(ngModel)]="carSelect" (change)="carroSelecionado()" >
-        <option value="0" disabled selected>Selecione uma opção</option>
-        <option value="0">carro1</option>
-        <option value="1">carro2</option>
-        <option value="2">carro3</option>
-        <option value="3">carro4</option>
-    </select>
-</div>
-<div class="d-flex flex-column align-items-center">
-    <p class="fs-1" *ngIf="carros">{{carros![selecionado].id}}</p>
-    <p class="fs-1" *ngIf="carros">{{carros![selecionado].vehicle}}</p>
-    <p class="fs-1" *ngIf="carros">{{carros![selecionado].connected}}</p>
-    <p class="fs-1" *ngIf="carros">{{carros![selecionado].softwareUpdates}}</p>
-    <img class="img-fluid w-100" alt="Responsive image" *ngIf="carros" [src]="carros![selecionado].img" >
-</div>
-</section>
+    <div class="card shadow-lg p-4 bg-light border-0" style="width: 400px;">
+        <div class="card-body">
+            <h5 class="card-title text-center text-dark">Selecione um Carro</h5>
+            <select class="form-select form-select-lg mb-3" name="selectDashboard" id="DashboardSelect" [(ngModel)]="carSelect" (change)="carroSelecionado()">
+                <option value="0" disabled selected>Selecione uma opção</option>
+                <option value="0">Carro 1</option>
+                <option value="1">Carro 2</option>
+                <option value="2">Carro 3</option>
+                <option value="3">Carro 4</option>
+            </select>
+
+            <div *ngIf="carros" class="text-center">
+                <p class="fs-4 fw-bold text-primary">{{carros[selecionado].id}}</p>
+                <p class="fs-5 text-secondary">{{carros[selecionado].vehicle}}</p>
+                <p class="fs-6 text-success">{{carros[selecionado].connected}}</p>
+                <p class="fs-6 text-danger">{{carros[selecionado].softwareUpdates}}</p>
+                <img class="img-fluid rounded shadow-sm mt-3" alt="Imagem do veículo" *ngIf="carros" [src]="carros![selecionado].img">
+            </div>
+        </div>
+    </div>
+</section>  
 
 
 
@@ -28,5 +32,5 @@
 
 
 
-<app-barra-lateral class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"></app-barra-lateral>
+<app-barra-lateral></app-barra-lateral>
 

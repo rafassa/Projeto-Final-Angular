@@ -31,10 +31,6 @@ export class HomeComponent {
   service = inject(AutenticacaoService)
 
   constructor(private router:Router, private route:ActivatedRoute){}
-  logOut(){
-   
-    this.service.removeStorage()
-    this.router.navigateByUrl('')
-  }
+  
 
 }
