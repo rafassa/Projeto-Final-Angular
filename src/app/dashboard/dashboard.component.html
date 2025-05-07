@@ -1,36 +1,45 @@
 
-
-
-<section class="container-fluid p-0 d-flex justify-content-center align-items-center">
-    <div class="card shadow-lg p-4 bg-light border-0" style="width: 400px;">
+<app-barra-lateral></app-barra-lateral>
+<div class="d-flex flex-column align-items-center justify-content-center w-100 ">
+<section class="container-fluid p-0 d-flex justify-content-center align-items-center p-4 flex-sm-column">
+    <div class="card shadow-lg p-4 bg-light border-0">
         <div class="card-body">
-            <h5 class="card-title text-center text-dark">Selecione um Carro</h5>
-            <select class="form-select form-select-lg mb-3" name="selectDashboard" id="DashboardSelect" [(ngModel)]="carSelect" (change)="carroSelecionado()">
+            <h5 class="card-title text-center text-dark w-100">Selecione um Carro</h5>
+            <select class="form-select form-select-lg  mb-3" name="selectDashboard" id="DashboardSelect" [(ngModel)]="carSelect" (change)="carroSelecionado()">
                 <option value="0" disabled selected>Selecione uma opção</option>
-                <option value="0">Carro 1</option>
-                <option value="1">Carro 2</option>
-                <option value="2">Carro 3</option>
-                <option value="3">Carro 4</option>
+                <option value="0">Ranger</option>
+                <option value="1">Mustang</option>
+                <option value="2">Territory</option>
+                <option value="3">Bronco Sport</option>
             </select>
 
             <div *ngIf="carros" class="text-center">
-                <p class="fs-4 fw-bold text-primary">{{carros[selecionado].id}}</p>
-                <p class="fs-5 text-secondary">{{carros[selecionado].vehicle}}</p>
+                <p class="fs-6 fw-bold text-primary">{{carros[selecionado].id}}</p>
+                <p class="fs-6 text-secondary">{{carros[selecionado].vehicle}}</p>
                 <p class="fs-6 text-success">{{carros[selecionado].connected}}</p>
                 <p class="fs-6 text-danger">{{carros[selecionado].softwareUpdates}}</p>
-                <img class="img-fluid rounded shadow-sm mt-3" alt="Imagem do veículo" *ngIf="carros" [src]="carros![selecionado].img">
+                
             </div>
+            
         </div>
+        
     </div>
+    <img class="img-fluid rounded  mt-3 w-50" alt="Imagem do veículo" *ngIf="carros" [src]="carros![selecionado].img">
+
+   
 </section>  
 
 
+<div class="d-flex ">
+    <app-pesquisa class="d-flex"></app-pesquisa>
+</div> 
 
-<div>
-    <app-pesquisa></app-pesquisa>
+
 </div>
 
 
 
-<app-barra-lateral></app-barra-lateral>
+
+
+
 

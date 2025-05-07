@@ -25,10 +25,15 @@ constructor(){
         return of({message:"VIN não encontrado"})
       })
     ))
-  ).subscribe((res:any)=>{
+  ).subscribe({
+    next: (res:any) =>{
     this.dataList = Array.isArray(res) ? res : [res]
   
     console.log("Resposta da API:", res)
+  },
+  error:(error:any)=>{
+    error.error.message
+  }
   })
 }
 }
