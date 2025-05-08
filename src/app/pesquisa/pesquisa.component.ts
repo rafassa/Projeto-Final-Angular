@@ -15,24 +15,25 @@ export class PesquisaComponent {
   service = inject(BarraService)
 pesquisaControl: FormControl = new FormControl("");
 dataList:Data[]| null=null
+mensagemDeErro: string | null=null
+
 constructor(){
   this.pesquisaControl.valueChanges.pipe(
     debounceTime(500),
     filter((search:string)=> search.trim().length> 19),
     switchMap(search => this.service.PostSearch(search).pipe(
-      catchError(error=>{
-        console.log("erro aos buscar vin", error)
-        return of({message:"VIN não encontrado"})
+      catchError(()=>{
+        this.mensagemDeErro = "VIN não encontrado";
+        this.dataList = null; 
+        return of(null);
       })
     ))
   ).subscribe({
     next: (res:any) =>{
+      if(res){
     this.dataList = Array.isArray(res) ? res : [res]
-  
-    console.log("Resposta da API:", res)
-  },
-  error:(error:any)=>{
-    error.error.message
+    this.mensagemDeErro = null 
+  }
   }
   })
 }
