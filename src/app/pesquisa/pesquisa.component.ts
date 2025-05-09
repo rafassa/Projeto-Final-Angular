@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { catchError, debounce, debounceTime, distinctUntilChanged, filter, switchMap, of} from 'rxjs';
+import { catchError, debounceTime,  filter, switchMap, of} from 'rxjs';
 import { BarraService } from '../services/barra.service';
 import { Data } from '@angular/router';
 import { CommonModule } from '@angular/common';

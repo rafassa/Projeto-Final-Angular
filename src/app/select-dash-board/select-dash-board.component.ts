@@ -1,21 +1,18 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Carro } from '../interfaces/Carro.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SelectService } from '../services/select.service';
-import { BarraLateralComponent } from '../barra-lateral/barra-lateral.component';
-import { PesquisaComponent } from '../pesquisa/pesquisa.component';
-import { SelectDashBoardComponent } from '../select-dash-board/select-dash-board.component';
-@Component({
-  selector: 'app-dashboard',
-  imports: [CommonModule, FormsModule,BarraLateralComponent, PesquisaComponent, SelectDashBoardComponent],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
-})
-export class DashboardComponent {
 
-  
+@Component({
+  selector: 'app-select-dash-board',
+  imports: [CommonModule, FormsModule],
+  templateUrl: './select-dash-board.component.html',
+  styleUrl: './select-dash-board.component.css'
+})
+export class SelectDashBoardComponent {
   private service = inject(SelectService)
 
   constructor(private http: HttpClient, ){}
@@ -37,7 +34,6 @@ carroSelecionado(){
   })
   
 }
-
-
-
 }
+
+

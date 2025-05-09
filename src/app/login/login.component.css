@@ -2,8 +2,14 @@
     height: 100vh;
 }
 
-#imgHome{
-    background-image: url('/ranger2.png');background-repeat: no-repeat;
-    background-size: 50%;
-background-position: center;
+
+
+
+#imagem__De__Fundo__Carro{
+    background-image: url('/teste.png');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    width: 100vw; 
+    height: 100vh; 
 }
