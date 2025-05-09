@@ -8,7 +8,10 @@
     <img src="./ranger.png" alt="carroImgHome" class="img-fluid  w-100 h-30">
 </div>
 <div class="container d-flex justify-content-center align-items-center bg-light container-center justify-self-center   flex-column border rounded shadow w-50 ">
-    <h1 class="text-monospace text-center">Boas vindas</h1>
+    <div class="w-50 pb-5">
+    <img src="./ford.png" alt="ford logo" class="w-100">
+    </div>
+    <h1 class="text-monospace text-center pt-5">Login</h1>
 <form #loginForm="ngForm" class="p-3  w-100 col-md-6"  (ngSubmit)="addUser(loginForm.value)">
 
     <div class="form-floating mb-3 ">
@@ -23,10 +26,18 @@
     <label for="senha">senha</label>
     <span class="error" *ngIf="senha.invalid && senha.touched" class="text-danger ">Campo não preenchido</span>
 </div>
+<div class="form-check form-switch pt-2 pb-2">
+  <input name="checkbox" [(ngModel)]="isChecked"  class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">Login automatico</label>
+</div>
 <div class="d-flex align-items-center p-2 ">
     <button class="btn  border" [disabled]="loginForm.invalid">login</button>
     <span  class=" text-justify fs-6 fw-light alert alert-danger p-2 m-0" *ngIf="mensagemDeErro">{{mensagemDeErro}}</span>
+   
+
+
 </div>
+
 </form>
 </div>
 

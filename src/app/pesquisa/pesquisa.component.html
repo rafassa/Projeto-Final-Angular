@@ -1,4 +1,4 @@
-<div class="container w-100 d-flex flex-column align-items-center gap-2  text-light p-3 rounded">
+<div class="container w-100 d-flex flex-column align-items-center gap-2  text-light p-3 justify-content-center rounded">
     
 
   <div class="input-group w-100 d-flex justify-content-center">
@@ -13,28 +13,32 @@
   </div>
 
   
-  <div *ngIf="dataList" class="d-flex align-items-center justify-content-center">
-      <table class="table table-bordered table-responsive ">
-          <thead class="table-dark text-warning">
-              <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Odômetro</th>
-                  <th scope="col">Nível Combustível</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Latitude</th>
-                  <th scope="col">Longitude</th>
-              </tr>
-          </thead>
-          <tbody class="table-secundary text-light">
-              <tr *ngFor="let item of dataList">
-                  <td>{{ item['id'] }}</td>
-                  <td>{{ item['odometro'] }}</td>
-                  <td>{{ item['nivelCombustivel'] }}</td>
-                  <td>{{ item['status'] }}</td>
-                  <td>{{ item['lat'] }}</td>
-                  <td>{{ item['long'] }}</td>
-              </tr>
-          </tbody>
-      </table>
+ <div class="d-flex justify-content-center">
+  <div *ngIf="dataList" class="table-responsive">
+    <table class="table table-bordered w-100">
+      <thead class="table-dark text-warning">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Odômetro</th>
+          <th scope="col">Nível Combustível</th>
+          <th scope="col">Status</th>
+          <th scope="col">Latitude</th>
+          <th scope="col">Longitude</th>
+        </tr>
+      </thead>
+      <tbody class="table-secondary text-light">
+        <tr *ngFor="let item of dataList">
+          <td>{{ item['id'] }}</td>
+          <td>{{ item['odometro'] }}</td>
+          <td>{{ item['nivelCombustivel'] }}</td>
+          <td>{{ item['status'] }}</td>
+          <td>{{ item['lat'] }}</td>
+          <td>{{ item['long'] }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+
+</div>
+

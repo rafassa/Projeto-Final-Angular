@@ -15,7 +15,18 @@ export class LoginComponent {
  
   constructor(private service:AutenticacaoService, private router:Router){}
   mensagemDeErro:string | null=null
+  isChecked = false;
+checkboxVar:any
+ngOnInit(){
+  const checkbox = localStorage.getItem('valor',)
+  if(checkbox){
+    this.checkboxVar = JSON.parse(checkbox)
+  }
 
+  if(this.checkboxVar == true){
+    this.router.navigateByUrl('/home')
+  }
+}
   
   
   addUser(user:Usuario[]){
@@ -24,7 +35,7 @@ export class LoginComponent {
       next: (data:Usuario[]) =>{
         this.router.navigateByUrl('/home')
         this.service.getApiInformation(data)
-       
+       this.service.pegarValorCheck(this.isChecked)
       },
       error:(error)=> {
         this.mensagemDeErro=error.error.message

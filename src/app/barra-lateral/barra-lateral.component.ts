@@ -30,7 +30,7 @@ export class BarraLateralComponent {
 
   constructor(private router:Router, private route:ActivatedRoute){}
   logOut(){
-   
+    
     this.service.removeStorage()
     this.router.navigateByUrl('')
   }
